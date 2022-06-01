@@ -62,4 +62,7 @@ export class Customer {
     get RewardPoints(): number {
         return this._rewardPoints;
     }
+    get Address(): Address {
+        return this._address;
+    }
 }

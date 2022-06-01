@@ -72,7 +72,7 @@ describe('Product repository test', () =>{
         expect(productReturned).toStrictEqual(new Product(productModel.id, productModel.name, productModel.price));
     })
 
-    it("should find a product", async() =>{
+    it("should find all product", async() =>{
         const productRepository = new ProductRepository();
         const product = new Product('1','Product 1', 100);
         const product2 = new Product('2','Product 2', 10);
