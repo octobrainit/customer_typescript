@@ -27,4 +27,26 @@ export class Order {
     total(): number {
         return this._items.reduce((acumulator,item) => acumulator + (item.Price), 0);
     }
+
+    public AddItem(item: OrderItem ) : void {
+        this._items.concat(item);
+        this._total = this.total();
+    }
+
+    public AddItems(item: OrderItem[] ) : void {
+        this._items.concat(item);
+    }
+
+    get Id(): string {
+        return this._id;
+    }
+    get customer_Id(): string {
+        return this._customerId;
+    }
+    get Total(): number {
+        return this._total; 
+    }
+    get Items(): OrderItem[] {
+        return this._items;
+    }
 }

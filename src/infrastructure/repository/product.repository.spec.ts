@@ -3,7 +3,7 @@ import ProductModel from '../db/sequelize/model/product.model';
 import Product from '../../domain/entity/product';
 import ProductRepository from "./product.repository";
 
-describe('Product repository test', () =>{
+describe('Product repository unit test', () =>{
     let sequilize: Sequelize;
 
     beforeEach(async () =>{

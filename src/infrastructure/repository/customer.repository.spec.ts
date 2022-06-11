@@ -4,7 +4,7 @@ import CustomerRepository from './customer.repository';
 import { Customer } from '../../domain/entity/cutomer';
 import { Address } from '../../domain/vo/address';
 
-describe('Customer unit test', ()=>{
+describe('Customer repository unit test', ()=>{
     let sequilize: Sequelize;
 
     beforeEach(async () =>{
@@ -83,7 +83,7 @@ describe('Customer unit test', ()=>{
         
         await customerRepository.create(customer);
 
-        const customerReturned = await customerRepository.find('1');
+        const customerReturned = await customerRepository.find(customer.Id);
         const customertModel = await CustomerModel.findOne({where: {id: '1'}});
         var customerByModel = new Customer(customertModel.id, customertModel.name);
         customerByModel.changeAddress(new Address(customertModel.street,customertModel.number,customertModel.zipcode,customertModel.city));
