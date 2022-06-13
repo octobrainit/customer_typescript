@@ -48,7 +48,7 @@ export default class OrderItem {
         return this._name;
     }
     get Price(): number{
-        return this._price * this._quantity;
+        return this._price;
     }
     get Quantity(): number{
         return this._quantity;

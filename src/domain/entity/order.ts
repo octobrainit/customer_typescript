@@ -25,7 +25,7 @@ export class Order {
     }
 
     total(): number {
-        return this._items.reduce((acumulator,item) => acumulator + (item.Price), 0);
+        return this._items.reduce((acumulator,item) => acumulator + (item.Price * item.Quantity), 0);
     }
 
     public AddItem(item: OrderItem ) : void {

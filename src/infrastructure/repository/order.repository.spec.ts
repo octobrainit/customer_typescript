@@ -142,4 +142,30 @@ describe('Order repository unit test', ()=>{
         }).rejects.toThrow('Order not found');
     })
 
+    it('should find all orders',async ()=>{
+        const customerRepository = new CustomerRepository();
+        const customer = new Customer('1','Customer 1');
+        customer.changeAddress(new Address('Victorio Pinotti',831,'15995222','Matao'));
+
+        await customerRepository.create(customer);
+
+        const productRepository = new ProductRepository();
+        const product = new Product('1','Product 1', 15);
+
+        await productRepository.create(product);
+
+        const orderItem = new OrderItem('1',product.Name,product.Price, product.Id, 2);
+        const order = new Order('1',customer.Id, [orderItem]);
+        const orderItem2 = new OrderItem('2',product.Name,product.Price, product.Id, 2);
+        const order2 = new Order('2',customer.Id, [orderItem2]);
+        const orderRepository = new OrderRepository();
+        
+        await orderRepository.create(order);
+        await orderRepository.create(order2);
+
+        const orderExpected = [order, order2];
+        const orderReturned = await orderRepository.findAll();
+        expect(orderReturned).toStrictEqual(orderExpected);
+    });
+
 })

@@ -35,7 +35,7 @@ describe('Order Item unit test',()=>{
     it("should change value",()=>{
         let orderItem = new OrderItem("123","Item 1",10, "p1", 10);
         orderItem.changePrice(15);
-        expect(orderItem.Price).toBe(150);
+        expect(orderItem.Price).toBe(15);
     });
 
     it("should throw error when Price is less than 0",()=>{
